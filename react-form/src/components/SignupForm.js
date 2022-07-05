@@ -5,9 +5,29 @@ const SignupForm = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
+
+  const inputChangeHandler = (e) => {
+    const { id, value } = e;
+    switch (id) {
+      case "firstName":
+        setFirstName(value);
+        console.log(firstName);
+        break;
+      case "lastName":
+        setLastName(value);
+        break;
+      case "email":
+        setEmail(value);
+        break;
+      case "password":
+        setPwd(value);
+        break;
+      default:
+        return;
+    }
+  };
   return (
     <>
-      {/* Registration Form */}
       <h3> Registration Form </h3>
       <div className="signup">
         <div className="signup__field">
@@ -20,10 +40,7 @@ const SignupForm = () => {
             id="firstName"
             name="firstName"
             placeholder="First Name"
-            onChange={(e) => {
-              setFirstName(e.target.value);
-              console.log(firstName);
-            }}
+            onChange={(e) => inputChangeHandler(e.target)}
           />
         </div>
         <div className="signup__field">
@@ -33,10 +50,8 @@ const SignupForm = () => {
             name="lastName"
             type="text"
             id="lastName"
-            placeholder="LastName"
-            onChange={(e) => {
-              setLastName(e.target.value);
-            }}
+            placeholder="Last Name"
+            onChange={(e) => inputChangeHandler(e.target)}
           />
         </div>
         <div className="signup__field">
@@ -47,9 +62,7 @@ const SignupForm = () => {
             type="email"
             id="email"
             placeholder="Email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            onChange={(e) => inputChangeHandler(e.target)}
           />
         </div>
         <div className="signup__field">
@@ -60,9 +73,7 @@ const SignupForm = () => {
             type="password"
             id="password"
             placeholder="Password"
-            onChange={(e) => {
-              setPwd(e.target.value);
-            }}
+            onChange={(e) => inputChangeHandler(e.target)}
           />
         </div>
 
