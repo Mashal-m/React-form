@@ -11,7 +11,6 @@ const SignupForm = () => {
     switch (id) {
       case "firstName":
         setFirstName(value);
-        console.log(firstName);
         break;
       case "lastName":
         setLastName(value);
