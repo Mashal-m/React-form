@@ -44,6 +44,9 @@ h3 {
 .signup__field--name {
   margin-top: 2rem;
 }
+.signup__field__error {
+  color: red;
+}
 .signup__button {
   background-color: #263d7e;
   border: none;
