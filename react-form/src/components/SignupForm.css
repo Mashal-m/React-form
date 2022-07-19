@@ -1,0 +1,65 @@
+body {
+  font-family: "Roboto";
+  background-color: #263d7e;
+}
+h1 {
+  text-decoration: underline;
+  text-align: center;
+}
+h5 {
+  font-weight: 400;
+  font-size: 19px;
+}
+input {
+  width: 12rem;
+  padding: 0.5rem;
+}
+label {
+  width: 147px;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+.form {
+  text-align: -webkit-center;
+}
+.title {
+  text-align: center;
+  font-size: 1.9rem;
+}
+h3 {
+  font-size: 3rem;
+  text-align: center;
+  color: #bab8b8;
+}
+.signup {
+  margin-top: 6rem;
+  margin-left: 8rem;
+  background-color: #f1f7fe;
+  text-align: center;
+  width: 77%;
+}
+.signup__field {
+  margin: 3rem;
+}
+.signup__field--name {
+  margin-top: 2rem;
+}
+.signup__field__error {
+  color: red;
+}
+.signup__button {
+  background-color: #263d7e;
+  border: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2rem;
+  cursor: pointer;
+  margin-top: 3rem;
+}
+.signup__button:hover {
+  background-color: #3e4684;
+}
