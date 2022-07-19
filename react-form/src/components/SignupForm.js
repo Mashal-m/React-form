@@ -38,7 +38,7 @@ const SignupForm = () => {
         alert("Please fill all fields");
     }
     {
-      firstName.length > 0 && firstName.length > 8
+      firstName.length === 3
         ? setFNameError("First Name should not be greater than 8")
         : setFNameError(" ");
     }
@@ -61,7 +61,7 @@ const SignupForm = () => {
   return (
     <>
       <h3> Registration Form </h3>
-      <form onSubmit={submitHandler}>
+      <form data-testid="form" onSubmit={submitHandler}>
         <div className="signup">
           <div className="signup__field">
             <label className="signup__field--Name" htmlFor="firstName">
@@ -70,12 +70,16 @@ const SignupForm = () => {
             <input
               value={firstName}
               type="text"
+              data-testid="fname-input"
               id="firstName"
               Name="firstName"
               placeholder="First Name"
               onChange={(e) => inputChangeHandler(e.target)}
             />
-            <p className="signup__field__error"> {fNameError}</p>
+            <p data-testid="fname-error" className="signup__field__error">
+              {" "}
+              {fNameError}
+            </p>
           </div>
           <div className="signup__field">
             <label htmlFor="lastName">Last Name </label>
@@ -83,11 +87,14 @@ const SignupForm = () => {
               value={lastName}
               Name="lastName"
               type="text"
+              data-testid="lname-input"
               id="lastName"
               placeholder="Last Name"
               onChange={(e) => inputChangeHandler(e.target)}
             />
-            <p className="signup__field__error">{lNameError}</p>
+            <p data-testid="lname-error" className="signup__field__error">
+              {lNameError}
+            </p>
           </div>
           <div className="signup__field">
             <label htmlFor="email">Email </label>
@@ -95,11 +102,14 @@ const SignupForm = () => {
               value={email}
               Name="email"
               type="email"
+              data-testid="email-input"
               id="email"
               placeholder="Email"
               onChange={(e) => inputChangeHandler(e.target)}
             />
-            <p className="signup__field__error">{emailError}</p>
+            <p data-testid="email-error" className="signup__field__error">
+              {emailError}
+            </p>
           </div>
           <div className="signup__field">
             <label htmlFor="password">Password </label>
@@ -108,13 +118,20 @@ const SignupForm = () => {
               Name="password"
               type="password"
               id="password"
+              data-testid="pwd-input"
               placeholder="Password"
               onChange={(e) => inputChangeHandler(e.target)}
             />
-            <p className="signup__field__error">{pwdError}</p>
+            <p data-testid="pwd-error" className="signup__field__error">
+              {pwdError}
+            </p>
           </div>
 
-          <button type="submit" className="signup__button">
+          <button
+            data-testid="submit-form"
+            type="submit"
+            className="signup__button"
+          >
             {" "}
             Register
           </button>
