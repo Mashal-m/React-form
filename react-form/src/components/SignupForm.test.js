@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import SignupForm from "./SIgnupForm";
+import SignupForm from "./SignupForm";
 import { fireEvent } from "@testing-library/react";
 
 describe("SignupForm", () => {
