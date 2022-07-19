@@ -34,8 +34,10 @@ const SignupForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     {
-      (firstName === "" || lastName === "" || email === "" || pwd === "") &&
-        alert("Please fill all fields");
+      firstName === "" ||
+        lastName === "" ||
+        email === "" ||
+        (pwd === "" && alert("please all fields"));
     }
     {
       firstName.length > 0 && firstName.length > 8
@@ -49,12 +51,12 @@ const SignupForm = () => {
     }
     {
       pwd.length > 0 && pwd.length > 8
-        ? setPwdError("First Name should not be greater than 8")
+        ? setPwdError("Password Name should not be greater than 8")
         : setPwdError(" ");
     }
     {
       email.length > 0 && !email.match(mailFormat)
-        ? setEmailError("First Name should not be greater than 8")
+        ? setEmailError("Email is invalid")
         : setEmailError(" ");
     }
   };
@@ -72,50 +74,59 @@ const SignupForm = () => {
               value={firstName}
               type="text"
               id="firstName"
-              Name="firstName"
+              name="firstName"
               placeholder="First Name"
               onChange={(e) => inputChangeHandler(e.target)}
             />
-            <p className="signup__field__error"> {fNameError}</p>
+            <p data-testid="fname-error" className="signup__field__error">
+              {" "}
+              {fNameError}
+            </p>
           </div>
           <div className="signup__field">
             <label htmlFor="lastName">Last Name </label>
             <input
               value={lastName}
-              Name="lastName"
+              name="lastName"
               data-testid="lname-input"
               type="text"
               id="lastName"
               placeholder="Last Name"
               onChange={(e) => inputChangeHandler(e.target)}
             />
-            <p className="signup__field__error">{lNameError}</p>
+            <p data-testid="lname-error" className="signup__field__error">
+              {lNameError}
+            </p>
           </div>
           <div className="signup__field">
             <label htmlFor="email">Email </label>
             <input
               value={email}
-              Name="email"
+              name="email"
               type="email"
               id="email"
               data-testid="email-input"
               placeholder="Email"
               onChange={(e) => inputChangeHandler(e.target)}
             />
-            <p className="signup__field__error">{emailError}</p>
+            <p data-testid="email-error" className="signup__field__error">
+              {emailError}
+            </p>
           </div>
           <div className="signup__field">
             <label htmlFor="password">Password </label>
             <input
               value={pwd}
-              Name="password"
+              name="password"
               type="password"
               id="password"
               data-testid="pwd-input"
               placeholder="Password"
               onChange={(e) => inputChangeHandler(e.target)}
             />
-            <p className="signup__field__error">{pwdError}</p>
+            <p data-testid="pwd-error" className="signup__field__error">
+              {pwdError}
+            </p>
           </div>
 
           <button

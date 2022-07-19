@@ -34,20 +34,32 @@ describe("SignupForm", () => {
 
   test("Submit Form and Validation", () => {
     const { getByTestId } = render(<SignupForm />);
+    fireEvent.click(getByTestId("submit-form"));
     const firstNameInput = getByTestId("fname-input");
-    fireEvent.change(firstNameInput, { target: { value: "abcdefgh" } });
-    expect(firstNameInput.value).toHaveLength(8);
+    fireEvent.change(firstNameInput, { target: { value: "abcdefghefg" } });
+    fireEvent.click(getByTestId("submit-form"));
+    expect(screen.getByTestId("fname-error").textContent).toBe(
+      " First Name should not be greater than 8"
+    );
+
     const lastNameInput = getByTestId("lname-input");
-    fireEvent.change(lastNameInput, { target: { value: "abcdefgh" } });
-    expect(lastNameInput.value).toHaveLength(8);
+    fireEvent.change(lastNameInput, { target: { value: "abcdefghefg" } });
+    fireEvent.click(getByTestId("submit-form"));
+    expect(screen.getByTestId("lname-error").textContent).toBe(
+      "Last Name should not be greater than 8"
+    );
+
     const pwdNameInput = getByTestId("pwd-input");
-    fireEvent.change(pwdNameInput, { target: { value: "abcdefgh" } });
-    expect(pwdNameInput.value).toHaveLength(8);
+    fireEvent.change(pwdNameInput, { target: { value: "abcdefghefg" } });
+    fireEvent.click(getByTestId("submit-form"));
+    expect(screen.getByTestId("pwd-error").textContent).toBe(
+      "Password Name should not be greater than 8"
+    );
+
     const emailNameInput = getByTestId("email-input");
     fireEvent.change(emailNameInput, { target: { value: "test@mail.com" } });
     expect(emailNameInput.value).toMatch(
       /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
     );
-    fireEvent.click(getByTestId("submit-form"));
   });
 });
