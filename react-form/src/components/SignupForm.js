@@ -61,13 +61,14 @@ const SignupForm = () => {
   return (
     <>
       <h3> Registration Form </h3>
-      <form onSubmit={submitHandler}>
+      <form data-testid="form" onSubmit={submitHandler}>
         <div className="signup">
           <div className="signup__field">
             <label className="signup__field--Name" htmlFor="firstName">
               First Name{" "}
             </label>
             <input
+              data-testid="fname-input"
               value={firstName}
               type="text"
               id="firstName"
@@ -82,6 +83,7 @@ const SignupForm = () => {
             <input
               value={lastName}
               Name="lastName"
+              data-testid="lname-input"
               type="text"
               id="lastName"
               placeholder="Last Name"
@@ -96,6 +98,7 @@ const SignupForm = () => {
               Name="email"
               type="email"
               id="email"
+              data-testid="email-input"
               placeholder="Email"
               onChange={(e) => inputChangeHandler(e.target)}
             />
@@ -108,13 +111,18 @@ const SignupForm = () => {
               Name="password"
               type="password"
               id="password"
+              data-testid="pwd-input"
               placeholder="Password"
               onChange={(e) => inputChangeHandler(e.target)}
             />
             <p className="signup__field__error">{pwdError}</p>
           </div>
 
-          <button type="submit" className="signup__button">
+          <button
+            data-testid="submit-form"
+            type="submit"
+            className="signup__button"
+          >
             {" "}
             Register
           </button>
